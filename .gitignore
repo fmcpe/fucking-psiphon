@@ -6,6 +6,7 @@
 *.json
 *.backup
 
+tun
 app
 psiphon-tunnel-core
 brainfuck-psiphon-pro
@@ -19,7 +20,3 @@ brainfuck-psiphon-pro-go.exe
 storage/psiphon/*/
 
 !storage/psiphon/database/
-
-# Related to projects
-go.mod
-go.sum
