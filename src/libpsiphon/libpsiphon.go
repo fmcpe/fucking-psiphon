@@ -28,6 +28,7 @@ var (
 		TunnelWorkers:  6,
 		KuotaDataLimit: 4,
 		Authorizations: make([]string, 0),
+		TargetServerEntry: 0,
 	}
 	DefaultKuotaData = &KuotaData{
 		Port: make(map[int]map[string]float64),
@@ -52,6 +53,7 @@ type Config struct {
 	TunnelWorkers  int
 	KuotaDataLimit int
 	Authorizations []string
+	TargetServerEntry []string
 }
 
 type KuotaData struct {
@@ -73,6 +75,7 @@ type Data struct {
 	ConnectionWorkerPoolSize  int
 	LimitTunnelProtocols      []string
 	Authorizations            []string
+	TargetServerEntry		  []string
 }
 
 type Psiphon struct {
@@ -132,6 +135,7 @@ func (p *Psiphon) Start() {
 		ConnectionWorkerPoolSize:  p.Config.TunnelWorkers,
 		LimitTunnelProtocols:      p.Config.Protocols,
 		Authorizations:            p.GetAuthorizations(),
+		TargetServerEntry:         p.Config.TargetServerEntry,
 	}
 
 	libutils.JsonWrite(PsiphonData, PsiphonData.MigrateDataStoreDirectory+"/config.json")
