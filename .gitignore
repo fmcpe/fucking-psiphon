@@ -1,14 +1,5 @@
-*.txt
-*.log
-*.ori
-*.bak
-*.conf
-*.json
-*.backup
-
 tun
 app
-psiphon-tunnel-core
 brainfuck-psiphon-pro
 brainfuck-psiphon-pro-go
 
