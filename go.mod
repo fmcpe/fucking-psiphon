@@ -1,4 +1,4 @@
-module fucking-psiphon
+module github.com/fmcpe/fucking-psiphon
 
 go 1.18
 
