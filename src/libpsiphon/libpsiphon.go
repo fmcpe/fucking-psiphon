@@ -28,7 +28,7 @@ var (
 		TunnelWorkers:  6,
 		KuotaDataLimit: 4,
 		Authorizations: make([]string, 0),
-		TargetServerEntry: 0,
+		TargetServerEntry: make([]string, 0),
 	}
 	DefaultKuotaData = &KuotaData{
 		Port: make(map[int]map[string]float64),
