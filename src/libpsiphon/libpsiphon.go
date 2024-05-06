@@ -28,7 +28,7 @@ var (
 		TunnelWorkers:  6,
 		KuotaDataLimit: 4,
 		Authorizations: make([]string, 0),
-		TargetServerEntry: make([]string, 0),
+		TargetServerEntry: "",
 	}
 	DefaultKuotaData = &KuotaData{
 		Port: make(map[int]map[string]float64),
@@ -53,7 +53,7 @@ type Config struct {
 	TunnelWorkers  int
 	KuotaDataLimit int
 	Authorizations []string
-	TargetServerEntry []string
+	TargetServerEntry string
 }
 
 type KuotaData struct {
@@ -75,7 +75,7 @@ type Data struct {
 	ConnectionWorkerPoolSize  int
 	LimitTunnelProtocols      []string
 	Authorizations            []string
-	TargetServerEntry		  []string
+	TargetServerEntry         string
 }
 
 type Psiphon struct {
