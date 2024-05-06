@@ -168,7 +168,7 @@ func main() {
 		Psiphon.Config = config.Psiphon
 		Psiphon.ProxyPort = Inject.Config.Port
 		Psiphon.KuotaData = libpsiphon.DefaultKuotaData
-		Psiphon.TargetServerEntry = libpsiphon.TargetServerEntry
+		Psiphon.TargetServerEntry = libpsiphon.Config.TargetServerEntry
 		Psiphon.ListenPort = libutils.Atoi(ProxyRotator.Config.Port) + i
 		Psiphon.Verbose = flagVerbose
 
