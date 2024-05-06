@@ -104,7 +104,7 @@ func main() {
 	flag.IntVar(&config.Psiphon.Tunnel, "t", config.Psiphon.Tunnel, "-t tunnel (e.g. -t 4) (1 for Reconnect Version)")
 	flag.IntVar(&config.Psiphon.TunnelWorkers, "tw", config.Psiphon.TunnelWorkers, "-tw tunnel-workers (e.g. -tw 6) (8 for Pro Version)")
 	flag.IntVar(&config.Psiphon.KuotaDataLimit, "l", config.Psiphon.KuotaDataLimit, "-l limit (in MB) (e.g. -l 4) (0 for Pro Version (unlimited))")
-	flag.IntVar(&config.Psiphon.TargetServerEntry, "sv", config.Psiphon.TargetServerEntry, "-sv $cat server-entry.dat (ex. 31232...)")
+	flag.StringVar(&config.Psiphon.TargetServerEntry, "sv", config.Psiphon.TargetServerEntry, "-sv $cat server-entry.dat (ex. 31232...)")
 	flag.Parse()
 
 	if !flagPro {
