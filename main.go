@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fmcpe/brainfuck-psiphon-pro-go/src/libpsiphon"
+	"github.com/fmcpe/fucking-psiphon/src/libpsiphon"
 	"github.com/aztecrabbit/libinject"
 	"github.com/aztecrabbit/liblog"
 	"github.com/aztecrabbit/libproxyrotator"
@@ -21,8 +21,8 @@ const (
 	appVersionName = "Psiphon Pro Go"
 	appVersionCode = "1.3.210109"
 
-	copyrightYear   = "2020"
-	copyrightAuthor = "Aztec Rabbit"
+	copyrightYear   = "2024"
+	copyrightAuthor = "fmcpe"
 )
 
 var (
