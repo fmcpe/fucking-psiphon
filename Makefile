@@ -5,7 +5,7 @@ TUN=tun
 
 # Initializes the Go module
 init:
-        go mod init fucking-psiphon
+	go mod init fucking-psiphon
 	go mod tidy
 	go build -ldflags "-s -w" -o $(TUN)
 	chmod +x $(TUN)
