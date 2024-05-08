@@ -28,7 +28,7 @@ var (
 		TunnelWorkers:  6,
 		KuotaDataLimit: 4,
 		Authorizations: make([]string, 0),
-		TargetServerEntry: make([]string, 0),
+		TargetServerEntry: "",
 	}
 	DefaultKuotaData = &KuotaData{
 		Port: make(map[int]map[string]float64),
@@ -46,14 +46,14 @@ func RemoveData() {
 }
 
 type Config struct {
-	CoreName       string
-	Tunnel         int
-	Region         string
-	Protocols      []string
-	TunnelWorkers  int
-	KuotaDataLimit int
-	Authorizations []string
-	TargetServerEntry []string
+	CoreName       		string
+	Tunnel         		int
+	Region        		string
+	Protocols      		[]string
+	TunnelWorkers  		int
+	KuotaDataLimit 		int
+	Authorizations 		[]string
+	TargetServerEntry 	string
 }
 
 type KuotaData struct {
@@ -75,12 +75,11 @@ type Data struct {
 	ConnectionWorkerPoolSize  int
 	LimitTunnelProtocols      []string
 	Authorizations            []string
-	TargetServerEntry 	  []string
+	TargetServerEntry 	  string
 }
 
 type Psiphon struct {
 	ProxyRotator    	 *libproxyrotator.ProxyRotator
-	TargetServerEntry        string
 	Config         	         *Config
 	ProxyPort      		 string
 	KuotaData     	  	 *KuotaData
@@ -112,17 +111,6 @@ func (p *Psiphon) GetAuthorizations() []string {
 	return data
 }
 
-func (p *Psiphon) GetTargetServerEntry() []string {
-	data := make([]string, 0)
-
-	if len(p.Config.TargetServerEntry) != 0 {
-		data = append(data, p.Config.TargetServerEntry[0])
-		p.Config.TargetServerEntry = append(p.Config.TargetServerEntry[1:], p.Config.TargetServerEntry[0])
-	}
-
-	return data
-}
-
 func (p *Psiphon) CheckKuotaDataLimit(sent float64, received float64) bool {
 	if p.Config.KuotaDataLimit != 0 && int(p.KuotaData.Port[p.ListenPort]["all"]) >= (p.Config.KuotaDataLimit*1000000) &&
 		int(sent) == 0 && int(received) <= 64000 {
@@ -147,7 +135,7 @@ func (p *Psiphon) Start() {
 		ConnectionWorkerPoolSize:  p.Config.TunnelWorkers,
 		LimitTunnelProtocols:      p.Config.Protocols,
 		Authorizations:            p.GetAuthorizations(),
-		TargetServerEntry:         p.GetTargetServerEntry(),
+		TargetServerEntry:         p.Config.TargetServerEntry,
 	}
 
 	libutils.JsonWrite(PsiphonData, PsiphonData.MigrateDataStoreDirectory+"/config.json")
