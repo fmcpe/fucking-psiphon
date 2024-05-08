@@ -283,5 +283,7 @@ func (p *Psiphon) Start() {
 		time.Sleep(200 * time.Millisecond)
 
 		p.LogInfo(fmt.Sprintf("Reconnecting (%s)", libutils.BytesToSize(p.KuotaData.Port[p.ListenPort]["all"])), liblog.Colors["G1"])
+		p.LogInfo(fmt.Sprintf(p.Config.TargetServerEntry, libutils.BytesToSize(p.KuotaData.Port[p.ListenPort]["all"])), liblog.Colors["G1"])
+		
 	}
 }
