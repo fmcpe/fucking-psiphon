@@ -79,13 +79,14 @@ type Data struct {
 }
 
 type Psiphon struct {
-	ProxyRotator    *libproxyrotator.ProxyRotator
-	Config          *Config
-	ProxyPort       string
-	KuotaData       *KuotaData
-	ListenPort      int
-	TunnelConnected int
-	Verbose         bool
+	ProxyRotator    	 *libproxyrotator.ProxyRotator
+	TargetServerEntry        string
+	Config         	         *Config
+	ProxyPort      		 string
+	KuotaData     	  	 *KuotaData
+	ListenPort     		 int
+	TunnelConnected 	 int
+	Verbose       	         bool
 }
 
 func (p *Psiphon) LogInfo(message string, color string) {
