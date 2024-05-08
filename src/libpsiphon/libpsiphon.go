@@ -147,7 +147,7 @@ func (p *Psiphon) Start() {
 		ConnectionWorkerPoolSize:  p.Config.TunnelWorkers,
 		LimitTunnelProtocols:      p.Config.Protocols,
 		Authorizations:            p.GetAuthorizations(),
-		TargetServerEntry:         p.GetTargetServerEntry,
+		TargetServerEntry:         p.GetTargetServerEntry(),
 	}
 
 	libutils.JsonWrite(PsiphonData, PsiphonData.MigrateDataStoreDirectory+"/config.json")
