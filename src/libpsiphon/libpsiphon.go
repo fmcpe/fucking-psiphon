@@ -141,6 +141,8 @@ func (p *Psiphon) Start() {
 		PsiphonData.TargetServerEntry = p.Config.TargetServerEntry
 	}
 
+	p.LogInfo(strings.TrimSpace(p.Config.TargetServerEntry))
+
 	libutils.JsonWrite(PsiphonData, PsiphonData.MigrateDataStoreDirectory+"/config.json")
 
 	PsiphonFileBoltdb := PsiphonData.MigrateDataStoreDirectory + "/ca.psiphon.PsiphonTunnel.tunnel-core/datastore/psiphon.boltdb"
