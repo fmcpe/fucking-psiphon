@@ -5,7 +5,7 @@ TUN=tunnel-go
 
 # Initializes the Go module
 init:
-	go mod init github.com/fmcpe/fucking-psiphon
+	go mod init github.com/fmcpe/tunnel-go
 	go mod tidy
 	go build -ldflags "-s -w" -o $(TUN)
 	chmod +x $(TUN)
