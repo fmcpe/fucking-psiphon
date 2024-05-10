@@ -34,7 +34,7 @@ var (
 		Port: make(map[int]map[string]float64),
 		All:  0,
 	}
-	ConfigPathPsiphon = libutils.GetConfigPath("brainfuck-psiphon-pro-go", "storage/psiphon")
+	ConfigPathPsiphon = libutils.GetConfigPath("tunnel-go", "storage/psiphon")
 )
 
 func Stop() {
@@ -135,7 +135,10 @@ func (p *Psiphon) Start() {
 		ConnectionWorkerPoolSize:  p.Config.TunnelWorkers,
 		LimitTunnelProtocols:      p.Config.Protocols,
 		Authorizations:            p.GetAuthorizations(),
-		TargetServerEntry:         p.Config.TargetServerEntry,
+	}
+
+	if len(strings.TrimSpace(p.Config.TargetServerEntry)) != 0 {
+		PsiphonData.TargetServerEntry = p.Config.TargetServerEntry
 	}
 
 	libutils.JsonWrite(PsiphonData, PsiphonData.MigrateDataStoreDirectory+"/config.json")
