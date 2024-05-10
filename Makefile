@@ -1,7 +1,7 @@
 .PHONY: init clean
 
 # The name of the binary to be built
-TUN=tun
+TUN=tunnel-go
 
 # Initializes the Go module
 init:
