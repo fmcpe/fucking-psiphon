@@ -17,9 +17,9 @@ import (
 )
 
 const (
-	appName        = "Brainfuck Tunnel"
-	appVersionName = "Psiphon Pro Go"
-	appVersionCode = "1.3.210109"
+	appName        = "Tunnel Go"
+	appVersionName = "Psiphon-Version"
+	appVersionCode = "1.0.240510"
 
 	copyrightYear   = "2024"
 	copyrightAuthor = "fmcpe"
@@ -66,19 +66,12 @@ func main() {
 	defaultConfig.Inject.Type = 2
 	defaultConfig.Inject.Rules = map[string][]string{
 		"akamai.net:80": []string{
-			"video.iflix.com",
-			"videocdn-2.iflix.com",
-			"iflix-videocdn-p1.akamaized.net",
-			"iflix-videocdn-p2.akamaized.net",
-			"iflix-videocdn-p3.akamaized.net",
-			"iflix-videocdn-p6.akamaized.net",
-			"iflix-videocdn-p7.akamaized.net",
-			"iflix-videocdn-p8.akamaized.net",
+			"125.235.36.177"
 		},
 	}
 	defaultConfig.Inject.Payload = ""
 	defaultConfig.Inject.Timeout = 5
-	defaultConfig.PsiphonCore = 4
+	defaultConfig.PsiphonCore = 1
 	defaultConfig.Psiphon = libpsiphon.DefaultConfig
 
 	if runtime.GOOS == "windows" {
@@ -104,6 +97,7 @@ func main() {
 	flag.IntVar(&config.Psiphon.Tunnel, "t", config.Psiphon.Tunnel, "-t tunnel (e.g. -t 4) (1 for Reconnect Version)")
 	flag.IntVar(&config.Psiphon.TunnelWorkers, "tw", config.Psiphon.TunnelWorkers, "-tw tunnel-workers (e.g. -tw 6) (8 for Pro Version)")
 	flag.IntVar(&config.Psiphon.KuotaDataLimit, "l", config.Psiphon.KuotaDataLimit, "-l limit (in MB) (e.g. -l 4) (0 for Pro Version (unlimited))")
+	flag.StringVar(&config.Psiphon.TargetServerEntry, "sv", config.Psiphon.TargetServerEntry, "-sv $cat server-entry.dat (ex. 31232...)")
 	flag.Parse()
 
 	if !flagPro {
