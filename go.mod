@@ -1,4 +1,4 @@
-module github.com/fmcpe/fucking-psiphon
+module github.com/fmcpe/tunnel-go
 
 go 1.22.2
 
