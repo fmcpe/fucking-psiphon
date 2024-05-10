@@ -66,7 +66,7 @@ func main() {
 	defaultConfig.Inject.Type = 2
 	defaultConfig.Inject.Rules = map[string][]string{
 		"akamai.net:80": []string{
-			"125.235.36.177"
+			"125.235.36.177",
 		},
 	}
 	defaultConfig.Inject.Payload = ""
