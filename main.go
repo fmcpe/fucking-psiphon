@@ -70,6 +70,7 @@ func main() {
 		},
 	}
 	defaultConfig.Inject.Payload = ""
+	defaultConfig.Inject.ServerNameIndication = ""
 	defaultConfig.Inject.Timeout = 5
 	defaultConfig.PsiphonCore = 1
 	defaultConfig.Psiphon = libpsiphon.DefaultConfig
