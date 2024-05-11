@@ -141,7 +141,7 @@ func (p *Psiphon) Start() {
 		PsiphonData.TargetServerEntry = p.Config.TargetServerEntry
 	}
 
-	p.LogInfo(strings.TrimSpace(p.Config.TargetServerEntry),liblog.Colors["R1"])
+	p.LogInfo(len(strings.TrimSpace(p.Config.TargetServerEntry)),liblog.Colors["R1"])
 
 	libutils.JsonWrite(PsiphonData, PsiphonData.MigrateDataStoreDirectory+"/config.json")
 
