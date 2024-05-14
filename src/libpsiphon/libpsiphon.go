@@ -137,10 +137,6 @@ func (p *Psiphon) Start() {
 		Authorizations:            p.GetAuthorizations(),
 	}
 
-	if p.Config.TargetServerEntry != "" {
-		PsiphonData.TargetServerEntry = p.Config.TargetServerEntry
-	}
-
 	libutils.JsonWrite(PsiphonData, PsiphonData.MigrateDataStoreDirectory+"/config.json")
 
 	PsiphonFileBoltdb := PsiphonData.MigrateDataStoreDirectory + "/ca.psiphon.PsiphonTunnel.tunnel-core/datastore/psiphon.boltdb"
@@ -286,7 +282,5 @@ func (p *Psiphon) Start() {
 		time.Sleep(200 * time.Millisecond)
 
 		p.LogInfo(fmt.Sprintf("Reconnecting (%s)", libutils.BytesToSize(p.KuotaData.Port[p.ListenPort]["all"])), liblog.Colors["G1"])
-		p.LogInfo(p.Config.TargetServerEntry, liblog.Colors["R1"])
-		
 	}
 }
