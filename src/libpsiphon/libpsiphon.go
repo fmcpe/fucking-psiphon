@@ -137,11 +137,9 @@ func (p *Psiphon) Start() {
 		Authorizations:            p.GetAuthorizations(),
 	}
 
-	if len(strings.TrimSpace(p.Config.TargetServerEntry)) != 0 {
+	if p.Config.TargetServerEntry != "" {
 		PsiphonData.TargetServerEntry = p.Config.TargetServerEntry
 	}
-
-	p.LogInfo(len(strings.TrimSpace(p.Config.TargetServerEntry)),liblog.Colors["R1"])
 
 	libutils.JsonWrite(PsiphonData, PsiphonData.MigrateDataStoreDirectory+"/config.json")
 
